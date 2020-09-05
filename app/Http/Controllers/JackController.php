@@ -6,18 +6,27 @@ use Illuminate\Http\Request;
 
 class JackController extends Controller
 {
+    static public $channel_list = [
+        [
+            "channel_id" => "UCutJqz56653xV2wwSvut_hQ",
+            "channel_nm" => "東海オンエア"
+        ],
+        [
+            "channel_id" => "UCynIYcsBwTrwBIecconPN2A",
+            "channel_nm" => "東海オンエアの控え室"
+        ]
+    ];
 
     public function index () 
     {
-        return view('index');
+        $channel_list = JackController::$channel_list;
+        return view('index', compact('channel_list'));
     }
 
-    public function detail () 
-    {        
-        $hello = 'Hello,World!';
-        $hello_array = ['Hello', 'こんにちは', 'ニーハオ'];
-
-        return view('detail', compact('hello', 'hello_array'));
+    public function detail ($id) 
+    {
+        $channel = JackController::getChannelById($id);
+        return view('detail', compact('channel'));
     }
 
     public function edit ()
@@ -30,4 +39,11 @@ class JackController extends Controller
         return 'update';
     }
 
+    static public function getChannelById($id) {
+        foreach (JackController::$channel_list as $channel) {
+            if ($channel["channel_id"] == $id) {
+                return $channel;
+            }
+        }
+    }
 }
