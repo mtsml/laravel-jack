@@ -15,7 +15,7 @@
     <ul>
         @foreach ($channel_list as $channel)
             <li>
-                <a href='/{{$channel["channel_id"]}}'>
+                <a href='/channel/{{$channel["channel_id"]}}'>
                     {{ $channel["channel_nm"] }}
                 </a>
             </li>

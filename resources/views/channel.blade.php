@@ -16,5 +16,14 @@
             {{$channel["channel_nm"]}}
         </a>        
     </h1>
+    <ul>
+        @foreach ($video_list as $video)
+            <li>
+                <a href='/video/{{$video["video_id"]}}'>
+                    {{ $video["video_nm"] }}
+                </a>
+            </li>
+        @endforeach
+    </ul>
 </body>
 </html>
