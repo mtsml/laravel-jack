@@ -23,10 +23,10 @@ class JackController extends Controller
         return view('index', compact('channel_list'));
     }
 
-    public function detail ($id) 
+    public function channel ($id) 
     {
         $channel = JackController::getChannelById($id);
-        return view('detail', compact('channel'));
+        return view('channel', compact('channel'));
     }
 
     public function edit ()

@@ -14,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'JackController@index');
-Route::get('/{id}', 'JackController@detail');
+Route::get('/channel/{id}', 'JackController@channel');
 Route::get('/edit', 'JackController@edit');
 Route::post('/edit', 'JackController@update');
